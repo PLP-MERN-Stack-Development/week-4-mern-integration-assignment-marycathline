@@ -14,7 +14,7 @@ You will build a blog application with the following features:
 
 ## Project Structure
 
-```
+``` 
 mern-blog/
 ├── client/                 # React front-end
 │   ├── public/             # Static files
