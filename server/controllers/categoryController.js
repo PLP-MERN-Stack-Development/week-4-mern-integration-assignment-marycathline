@@ -1,4 +1,4 @@
-const Category = require('../models/Category');
+const Category = require('../models/category');
 
 // GET /api/categories
 const getAllCategories = async (req, res, next) => {
