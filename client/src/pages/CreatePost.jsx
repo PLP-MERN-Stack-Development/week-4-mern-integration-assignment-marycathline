@@ -1,18 +1,28 @@
 // src/pages/CreatePost.jsx
 
+import { useNavigate } from 'react-router-dom';
 import PostForm from '../components/PostForm';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
   const navigate = useNavigate();
 
   const handleCreate = async (formData) => {
+    
+    const tempPost = {
+      ...formData,
+      _id: Date.now(), // temp ID
+      createdAt: new Date().toISOString(),
+    };
+
+  
+
     try {
       const res = await axios.post('/api/posts', formData);
       navigate(`/posts/${res.data.data._id}`);
     } catch (err) {
-      console.error(err);
+      console.error('Post creation failed:', err.message);
+      
     }
   };
 
